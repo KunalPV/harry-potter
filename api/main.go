@@ -10,6 +10,12 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+
+	_ "harry-potter-api/generators/ancestry"
+	_ "harry-potter-api/generators/house"
+	_ "harry-potter-api/generators/name"
+	_ "harry-potter-api/generators/wand_core"
+	_ "harry-potter-api/generators/wand_wood"
 )
 
 var characters []models.Character
