@@ -2,12 +2,12 @@ package utils
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"log"
+	"os"
 )
 
 func LoadJSON(filePath string, target interface{}) {
-	data, err := ioutil.ReadFile(filePath)
+	data, err := os.ReadFile(filePath)
 	if err != nil {
 		log.Fatalf("Failed to load file: %s", err)
 	}

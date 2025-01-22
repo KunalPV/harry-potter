@@ -23,12 +23,15 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
+	// Initialize TriviaHandler
+	triviaHandler := handlers.NewTriviaHandler(characters, spells)
+
 	// Define routes
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Welcome to the Harry Potter Trivia API!"))
 	})
-	r.Get("/api/game/question", handlers.TriviaHandler)
+	r.Get("/api/game/question/", triviaHandler.ServeHTTP)
 
 	port := ":8080"
 	fmt.Printf("Server is running on http://localhost%s\n", port)
