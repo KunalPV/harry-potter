@@ -46,8 +46,12 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Welcome to the Harry Potter Trivia API!"))
 	})
+
 	r.Get("/api/game/question/", triviaHandler.ServeHTTP)
 	r.Get("/api/facts", handlers.GetFactHandler)
+	r.Get("/api/characters", func(w http.ResponseWriter, r *http.Request) {
+		handlers.GetCharactersHandler(w, r, characters)
+	})
 
 	port := ":8080"
 	fmt.Printf("Server is running on http://localhost%s\n", port)

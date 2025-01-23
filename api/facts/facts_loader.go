@@ -2,7 +2,6 @@ package facts
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 )
@@ -18,5 +17,4 @@ func LoadFacts(factsFile string) {
 	if err := json.Unmarshal(data, &facts); err != nil {
 		log.Fatalf("Error parsing facts file: %v", err)
 	}
-	fmt.Printf("Loaded %d facts.\n", len(facts))
 }
