@@ -17,7 +17,7 @@ func init() {
 // GenerateNameQuestion generates a question about a character's patronus
 func GenerateNameQuestion(characters []models.Character, spells []models.Spell, rng *rand.Rand) (map[string]interface{}, error) {
 	// Filter characters with patronus
-	validCharacters := helpers.FilterCharactersWithAttribute(characters, "Patronus")
+	validCharacters := helpers.FilterCharactersWithAttribute(characters, "Name")
 	if len(validCharacters) == 0 {
 		return nil, fmt.Errorf("no characters with a patronus available")
 	}

@@ -1,7 +1,6 @@
 package helpers
 
 import (
-	"fmt"
 	"harry-potter-api/models"
 )
 
@@ -10,7 +9,7 @@ func FilterCharactersWithAttribute(characters []models.Character, attribute stri
 	filtered := []models.Character{}
 	for _, char := range characters {
 		switch attribute {
-		case "Patronus":
+		case "Name":
 			if char.Patronus != "" {
 				filtered = append(filtered, char)
 			}
@@ -30,10 +29,17 @@ func FilterCharactersWithAttribute(characters []models.Character, attribute stri
 			if char.Wand.Core != "" {
 				filtered = append(filtered, char)
 			}
+		case "Actor":
+			if char.Actor != "" {
+				filtered = append(filtered, char)
+			}
+		case "AlternateNames":
+			if len(char.AlternateNames) > 0 {
+				filtered = append(filtered, char)
+			}
 		}
 	}
 
-	fmt.Printf("Filtered %d characters with attribute %s\n", len(filtered), attribute)
 	return filtered
 }
 
@@ -54,7 +60,14 @@ func FilterCharactersWithSameAttribute(characters []models.Character, attribute 
 			if char.Wand.Wood == value {
 				filtered = append(filtered, char)
 			}
-			// Add more cases for other attributes as needed
+		case "Wand.Core":
+			if char.Wand.Core != "" {
+				filtered = append(filtered, char)
+			}
+		case "Actor":
+			if char.Actor != "" {
+				filtered = append(filtered, char)
+			}
 		}
 	}
 	return filtered
@@ -83,6 +96,10 @@ func FilterCharactersWithDifferentAttribute(characters []models.Character, attri
 			}
 		case "Wand.Core":
 			if char.Wand.Core != "" && char.Wand.Core != value {
+				filtered = append(filtered, char)
+			}
+		case "Actor":
+			if char.Actor != "" {
 				filtered = append(filtered, char)
 			}
 		}
