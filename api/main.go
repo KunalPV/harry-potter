@@ -52,6 +52,9 @@ func main() {
 	r.Get("/api/characters", func(w http.ResponseWriter, r *http.Request) {
 		handlers.GetCharactersHandler(w, r, characters)
 	})
+	r.Get("/api/spells", func(w http.ResponseWriter, r *http.Request) {
+		handlers.GetSpellsHandler(w, r, spells)
+	})
 
 	port := ":8080"
 	fmt.Printf("Server is running on http://localhost%s\n", port)
