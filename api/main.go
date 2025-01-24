@@ -13,7 +13,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 
-	_ "harry-potter-api/generators/actor"
+	// _ "harry-potter-api/generators/actor"
 	_ "harry-potter-api/generators/alternate_names"
 	_ "harry-potter-api/generators/ancestry"
 	_ "harry-potter-api/generators/house"
