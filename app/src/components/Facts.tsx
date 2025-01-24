@@ -31,7 +31,7 @@ export function Facts() {
 
   return(
     <div className="w-full flex justify-center items-center p-0 md:p-4">
-      <Card className="w-full flex justify-center items-center flex-col p-2 md:p-0">
+      <Card className="w-full flex justify-center items-center flex-col p-2 md:p-0 bg-white/30 backdrop-blur-sm border border-white/5">
         <CardHeader className="p-2 md:p-4">
           <CardTitle className="text-2xl">Fact of the Day.</CardTitle>
         </CardHeader>

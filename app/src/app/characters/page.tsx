@@ -76,7 +76,7 @@ export default function Characters() {
     <div className="w-full">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex justify-between items-center w-full py-4">
-          <Button variant="outline" size="icon" className="p-2" onClick={() => router.back()}>
+          <Button variant="outline" size="icon" className="p-2 bg-white/30 backdrop-blur-sm border border-white/5" onClick={() => router.back()}>
             <ChevronLeft />
           </Button>
           <h1 className="text-2xl font-semibold px-2">Character Book</h1>
@@ -98,86 +98,89 @@ export default function Characters() {
             </div>
 
             <div className="w-full mt-2 mb-10">
-  <Pagination>
-    <PaginationContent>
-      {/* Previous Button */}
-      <PaginationItem>
-        {page > 1 ? (
-          <PaginationPrevious
-            href={`?page=${page - 1}`}
-            onClick={(e) => {
-              e.preventDefault();
-              setPage(page - 1);
-            }}
-          />
-        ) : (
-          <PaginationPrevious
-            href="#"
-            className="pointer-events-none opacity-50"
-            aria-disabled="true"
-          />
-        )}
-      </PaginationItem>
+              <Pagination>
+                <PaginationContent>
+                  {/* Previous Button */}
+                  <PaginationItem>
+                    {page > 1 ? (
+                      <PaginationPrevious
+                        href={`?page=${page - 1}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setPage(page - 1);
+                        }}
+                        className="bg-white/30 backdrop-blur-sm border border-white/5"
+                      />
+                    ) : (
+                      <PaginationPrevious
+                        href="#"
+                        className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5"
+                        aria-disabled="true"
+                      />
+                    )}
+                  </PaginationItem>
 
-      {/* Dynamic Page Numbers */}
-      {Array.from({ length: totalPages }, (_, index) => index + 1)
-        .filter((pageNumber) => {
-          // Show the first, last, current, and adjacent pages, plus ellipses
-          return (
-            pageNumber === 1 ||
-            pageNumber === totalPages ||
-            (pageNumber >= page - 2 && pageNumber <= page + 2)
-          );
-        })
-        .map((pageNumber, index, filteredPages) => {
-          const prevPage = filteredPages[index - 1];
+                  {/* Dynamic Page Numbers */}
+                  {Array.from({ length: totalPages }, (_, index) => index + 1)
+                    .filter((pageNumber) => {
+                      // Show the first, last, current, and adjacent pages, plus ellipses
+                      return (
+                        pageNumber === 1 ||
+                        pageNumber === totalPages ||
+                        (pageNumber >= page - 2 && pageNumber <= page + 2)
+                      );
+                    })
+                    .map((pageNumber, index, filteredPages) => {
+                      const prevPage = filteredPages[index - 1];
 
-          // Add ellipsis where there is a gap in the page sequence
-          if (prevPage && pageNumber - prevPage > 1) {
-            return (
-              <PaginationItem key={`ellipsis-${pageNumber}`}>
-                <PaginationEllipsis />
-              </PaginationItem>
-            );
-          }
+                      // Add ellipsis where there is a gap in the page sequence
+                      if (prevPage && pageNumber - prevPage > 1) {
+                        return (
+                          <PaginationItem key={`ellipsis-${pageNumber}`}>
+                            <PaginationEllipsis />
+                          </PaginationItem>
+                        );
+                      }
 
-          return (
-            <PaginationItem key={pageNumber}>
-              <PaginationLink
-                href={`?page=${pageNumber}`}
-                isActive={pageNumber === page}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage(pageNumber);
-                }}
-              >
-                {pageNumber}
-              </PaginationLink>
-            </PaginationItem>
-          );
-        })}
+                      return (
+                        <PaginationItem key={pageNumber}>
+                          <PaginationLink
+                            href={`?page=${pageNumber}`}
+                            isActive={pageNumber === page}
+                            className="bg-white/30 backdrop-blur-sm border border-white/5"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setPage(pageNumber);
+                            }}
+                          >
+                            {pageNumber}
+                          </PaginationLink>
+                        </PaginationItem>
+                      );
+                    })}
 
-      {/* Next Button */}
-      <PaginationItem>
-        {page < totalPages ? (
-          <PaginationNext
-            href={`?page=${page + 1}`}
-            onClick={(e) => {
-              e.preventDefault();
-              setPage(page + 1);
-            }}
-          />
-        ) : (
-          <PaginationNext
-            href="#"
-            className="pointer-events-none opacity-50"
-            aria-disabled="true"
-          />
-        )}
-      </PaginationItem>
-    </PaginationContent>
-  </Pagination>
-</div>
+                    {/* Next Button */}
+                    <PaginationItem>
+                      {page < totalPages ? (
+                        <PaginationNext
+                          href={`?page=${page + 1}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setPage(page + 1);
+                          }}
+                          className="bg-white/30 backdrop-blur-sm border border-white/5"
+                        />
+                      ) : (
+                        <PaginationNext
+                          href="#"
+                          className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5"
+                          aria-disabled="true"
+                        />
+                      )}
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
             </>
           )}
 

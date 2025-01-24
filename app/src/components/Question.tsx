@@ -58,7 +58,7 @@ export default function Question({
   };
 
   return (
-    <Card>
+    <Card className="bg-white/30 backdrop-blur-sm border border-white/5">
       <CardContent className="p-4">
         <div className="w-full flex flex-col justify-start items-center px-4 gap-4">
           <div>
@@ -76,11 +76,11 @@ export default function Question({
                   selectedOption === option
                     ? showResult
                       ? option === question.answer
-                        ? "bg-green-100"
-                        : "bg-red-100"
-                      : "bg-gray-100"
+                        ? "bg-green-500/20"
+                        : "bg-red-500/20"
+                      : "bg-zinc-700/20"
                     : showResult && option === question.answer
-                    ? "bg-green-100"
+                    ? "bg-green-500/20"
                     : ""
                 }`}
               >
@@ -92,7 +92,7 @@ export default function Question({
           <Separator />
 
           {message && (
-            <div className="w-full text-center text-red-500 italic mt-2">
+            <div className="w-full text-center text-red-800 italic mt-2">
               {message}
             </div>
           )}

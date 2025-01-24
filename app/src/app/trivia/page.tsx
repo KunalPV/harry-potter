@@ -76,7 +76,7 @@ export default function Trivia() {
     <div className="w-full p-2 mt-2 mb-6">
       <div className="w-full flex flex-col justify-center items-start gap-4">
         <div className="flex justify-between items-center w-full">
-          <Button variant="outline" size="icon" onClick={() => router.back()}>
+          <Button variant="outline" size="icon" onClick={() => router.back()} className="bg-white/30 backdrop-blur-sm border border-white/5">
             <ChevronLeft />
           </Button>
           <h1 className="text-2xl font-semibold">Trivia Game</h1>

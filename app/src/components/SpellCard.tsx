@@ -10,7 +10,7 @@ type Spell = {
 export default function SpellCard({ spell }: { spell: Spell }) {
   return(
     <div className="w-full">
-      <Card className="w-full min-h-full" >
+      <Card className="w-full min-h-full bg-white/50 backdrop-blur-sm border border-white/5" >
         <CardContent className="flex justify-around items-center gap-4 p-6 flex-col">
           <div className="w-full flex justify-between items-center">
             <div>

@@ -64,7 +64,7 @@ export default function CharacterCard({ character }: { character: Character }) {
     <div className="w-full">
       <Dialog>
         <DialogTrigger className="w-full flex justify-center items-center">
-          <Card className="w-80 sm:w-full cursor-pointer hover:shadow-lg" >
+          <Card className="w-80 sm:w-full cursor-pointer hover:shadow-lg bg-white/70 backdrop-blur-sm border border-white/5" >
             <CardContent className="flex justify-around items-center gap-4 p-4">
               <div className="w-12 h-12 bg-gray-500 rounded-full">
 

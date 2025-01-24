@@ -58,7 +58,7 @@ export default function Spells() {
     <div className="w-full">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex justify-between items-center w-full p-4">
-          <Button variant="outline" size="icon" onClick={() => router.back()}>
+          <Button variant="outline" size="icon" onClick={() => router.back()} className="bg-white/30 backdrop-blur-sm border border-white/5">
             <ChevronLeft />
           </Button>
           <h1 className="text-2xl font-semibold px-4">Spell Book</h1>
@@ -91,11 +91,12 @@ export default function Spells() {
                           e.preventDefault();
                           setPage(page - 1);
                         }}
+                        className="bg-white/30 backdrop-blur-sm border border-white/5"
                       />
                     ) : (
                       <PaginationPrevious
                         href="#"
-                        className="pointer-events-none opacity-50"
+                        className="pointer-events-none opacity-50 bg-white/10 backdrop-blur-sm border border-white/5"
                         aria-disabled="true"
                       />
                     )}
@@ -123,6 +124,7 @@ export default function Spells() {
                           <PaginationLink
                             href={`?page=${pageNumber}`}
                             isActive={pageNumber === page}
+                            className="bg-white/30 backdrop-blur-sm border border-white/5"
                             onClick={(e) => {
                               e.preventDefault();
                               setPage(pageNumber);
@@ -139,6 +141,7 @@ export default function Spells() {
                     {page < totalPages ? (
                       <PaginationNext
                         href={`?page=${page + 1}`}
+                        className="bg-white/30 backdrop-blur-sm border border-white/5"
                         onClick={(e) => {
                           e.preventDefault();
                           setPage(page + 1);
@@ -147,7 +150,7 @@ export default function Spells() {
                     ) : (
                       <PaginationNext
                         href="#"
-                        className="pointer-events-none opacity-50"
+                        className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5"
                         aria-disabled="true"
                       />
                     )}
