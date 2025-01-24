@@ -1,1 +1,1 @@
-# harry-potter-trivia
+# Potterhead-Puzzles
