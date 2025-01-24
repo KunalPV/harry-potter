@@ -16,7 +16,7 @@ func GetSpellsHandler(w http.ResponseWriter, r *http.Request, spells []models.Sp
 	}
 	limit, err := strconv.Atoi(r.URL.Query().Get("limit"))
 	if err != nil || limit < 1 {
-		limit = 30
+		limit = 10
 	}
 
 	// Calculate pagination indices

@@ -1,13 +1,17 @@
 {
   "current_fact": {
-    "fact": "The spell Protean Charm links objects together for better communication.",
-    "source": "spells"
+    "fact": "Albus Severus Potter is also known as Al.",
+    "source": "characters"
   },
   "shown_facts": [
     {
       "fact": "The spell Protean Charm links objects together for better communication.",
       "source": "spells"
+    },
+    {
+      "fact": "Albus Severus Potter is also known as Al.",
+      "source": "characters"
     }
   ],
-  "last_updated_day": "2025-01-23T05:30:00+05:30"
+  "last_updated_day": "2025-01-24T00:00:00Z"
 }

@@ -16,7 +16,7 @@ func GetCharactersHandler(w http.ResponseWriter, r *http.Request, characters []m
 	}
 	limit, err := strconv.Atoi(r.URL.Query().Get("limit"))
 	if err != nil || limit < 1 {
-		limit = 20
+		limit = 12
 	}
 
 	// Calculate pagination indices

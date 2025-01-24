@@ -11,6 +11,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/cors"
 
 	_ "harry-potter-api/generators/actor"
 	_ "harry-potter-api/generators/alternate_names"
@@ -36,6 +37,16 @@ func main() {
 	facts.LoadState("facts/state/state.json")
 
 	r := chi.NewRouter()
+
+	r.Use(cors.Handler(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
+		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+		ExposedHeaders:   []string{"Link"},
+		AllowCredentials: false,
+		MaxAge:           300,
+	}))
+
 	r.Use(middleware.Logger)
 
 	// Initialize TriviaHandler
@@ -47,7 +58,7 @@ func main() {
 		w.Write([]byte("Welcome to the Harry Potter Trivia API!"))
 	})
 
-	r.Get("/api/game/question/", triviaHandler.ServeHTTP)
+	r.Get("/api/game/question", triviaHandler.ServeHTTP)
 	r.Get("/api/facts", handlers.GetFactHandler)
 	r.Get("/api/characters", func(w http.ResponseWriter, r *http.Request) {
 		handlers.GetCharactersHandler(w, r, characters)
