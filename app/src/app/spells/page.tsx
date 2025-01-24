@@ -1,3 +1,5 @@
+"use client"
+
 import SpellCard from "@/components/SpellCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -11,13 +13,16 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import { useRouter } from "next/navigation";
 
 export default function Spells() {
+  const router = useRouter();
+
   return(
     <div className="w-full">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex justify-between items-center w-full p-4">
-          <Button variant="outline" size="icon">
+          <Button variant="outline" size="icon" onClick={() => router.back()}>
             <ChevronLeft />
           </Button>
           <h1 className="text-2xl font-semibold px-4">Spell Book</h1>

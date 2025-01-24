@@ -1,8 +1,12 @@
+"use client"
+
 import { Facts } from "./Facts";
 import { Button } from "@/components/ui/button"
-
+import { useRouter } from "next/navigation";
 
 export function Hero() {
+  const router = useRouter();
+
   return(
     <div className="w-full px-4 md:px-20 py-5 md:py-14 flex flex-col justify-center items-start">
       <div className="font-semibold w-full">
@@ -13,9 +17,27 @@ export function Hero() {
       </div>
       <div className="w-full flex justify-center items-center mt-10 md:mt-5">
         <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10">
-          <Button size={"lg"} className="text-xl w-64">Trivia</Button>
-          <Button size={"lg"} className="text-xl w-64">Characters</Button>
-          <Button size={"lg"} className="text-xl w-64">Spells</Button>
+          <Button 
+            size={"lg"} 
+            className="text-xl w-64"
+            onClick={() => router.push("/trivia")}
+          >
+            Trivia
+          </Button>
+          <Button 
+            size={"lg"} 
+            className="text-xl w-64"
+            onClick={() => router.push("/characters")}
+          >
+            Characters
+          </Button>
+          <Button 
+            size={"lg"} 
+            className="text-xl w-64"
+            onClick={() => router.push("/spells")}
+          >
+            Spells
+          </Button>
         </div>
       </div>
     </div>
