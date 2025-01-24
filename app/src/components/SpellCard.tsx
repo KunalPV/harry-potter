@@ -12,10 +12,10 @@ export default function SpellCard({ spell }: { spell: Spell }) {
   return(
     <div className="w-full">
       <Card className="w-full min-h-full bg-white/50 backdrop-blur-sm border border-white/5" >
-        <CardContent className="flex justify-around items-center gap-4 p-6 flex-col">
+        <CardContent className="flex justify-around items-center gap-2 px-6 py-2 flex-col font-bold">
           <div className="w-full flex justify-between items-center">
             <div>
-              <p className="text-2xl font-semibold text-justify">{spell.name}</p>
+              <p className="text-3xl text-justify font-im-fell animate-bounce">{spell.name}</p>
             </div>
 
             <div className="overflow-hidden">
@@ -31,8 +31,8 @@ export default function SpellCard({ spell }: { spell: Spell }) {
 
           <Separator className="bg-black" />
 
-          <div className="">
-            <h2 className="text-xl text-center">{spell.description}</h2>
+          <div className="my-2">
+            <h2 className="text-2xl text-center font-medieval">{spell.description}</h2>
           </div>
         </CardContent>
       </Card>

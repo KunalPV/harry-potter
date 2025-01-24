@@ -33,13 +33,13 @@ export function Facts() {
     <div className="w-full flex justify-center items-center p-0 md:p-4">
       <Card className="w-full flex justify-center items-center flex-col p-2 md:p-0 bg-white/30 backdrop-blur-sm border border-white/5">
         <CardHeader className="p-2 md:p-4">
-          <CardTitle className="text-2xl">Fact of the Day.</CardTitle>
+          <CardTitle className="text-3xl font-bold font-im-fell">Fact of the Day.</CardTitle>
         </CardHeader>
 
         <Separator className="mx-4 w-[95%] bg-black" />
 
         <CardContent className="p-2 md:p-4 text-balance text-center">
-          <p className="text-xl">{fact}</p>
+          <p className="text-2xl font-medieval font-bold">{fact}</p>
         </CardContent>
       </Card>
     </div>

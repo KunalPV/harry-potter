@@ -76,11 +76,11 @@ export default function Trivia() {
           >
             <ChevronLeft />
           </Button>
-          <h1 className="text-2xl font-semibold">Trivia Game</h1>
+          <h1 className="text-5xl font-bold font-harry tracking-wide">Trivia Game</h1>
           <div></div>
         </div>
 
-        <Separator />
+        <Separator className="bg-black" />
 
         <div className="w-full">
           {question && (
@@ -94,7 +94,7 @@ export default function Trivia() {
         </div>
 
         <div className="w-full flex justify-center items-center">
-          <Button size={"lg"} className="text-xl w-64" onClick={handleEndGame}>
+          <Button size={"lg"} className="text-3xl w-64 font-magic text-white/90" onClick={handleEndGame}>
             End Trivia
           </Button>
         </div>

@@ -2,6 +2,7 @@ import { Card, CardContent } from "./ui/card";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -55,9 +56,9 @@ export default function CharacterCard({ character }: { character: Character }) {
   } = character;
 
   const designation = hogwartsStudent
-    ? "Student"
+    ? "student"
     : hogwartsStaff
-    ? "Staff"
+    ? "staff"
     : "Unknown";
 
   const wandDetails = `${wand.wood || "unknown"} wood, ${wand.core || "unknown"} core, ${wand.length || "unknown"} length`;
@@ -67,7 +68,7 @@ export default function CharacterCard({ character }: { character: Character }) {
       <Dialog>
         <DialogTrigger className="w-full flex justify-center items-center">
           <Card className="w-80 sm:w-full cursor-pointer hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/5" >
-            <CardContent className="flex justify-around items-center gap-4 p-4">
+            <CardContent className="flex justify-around items-center gap-4 p-4 font-im-fell font-bold">
               <div className="overflow-hidden">
                 <Image 
                   src={getHouseLogo(house)}
@@ -78,13 +79,13 @@ export default function CharacterCard({ character }: { character: Character }) {
                 />
               </div>
               <div className="w-9/12">
-                <h2 className="text-xl font-bold truncate">{name}</h2>
+                <h2 className="text-2xl font-bold truncate">{name}</h2>
               </div>
             </CardContent>
           </Card>
         </DialogTrigger>
         <DialogContent 
-          className="max-w-md max-h-screen md:max-w-2xl lg:max-w-3xl rounded-md overflow-auto border-black"
+          className="max-w-sm max-h-screen md:max-w-2xl lg:max-w-3xl rounded-md overflow-auto border-black"
           style={{
             backgroundImage: `radial-gradient(
               circle at center,
@@ -98,16 +99,17 @@ export default function CharacterCard({ character }: { character: Character }) {
           <DialogHeader>
             <DialogTitle>
               <div className="w-full flex justify-center items-center pb-2">
-                <h1 className="text-3xl font-semibold">{name}</h1>
+                <h1 className="text-4xl md:text-6xl tracking-wide font-semibold font-harry animate-pulse overflow-auto">{name}</h1>
               </div>
             </DialogTitle>
+            <DialogDescription></DialogDescription>
 
             <Separator className="bg-black" />
 
           </DialogHeader>
 
-          <div className="w-full flex flex-col gap-4 text-lg p-2 rounded-md bg-white/40 border-white/5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-justify">
+          <div className="w-full flex flex-col gap-4 text-lg py-4 px-6 rounded-md bg-white/20 border-white/5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-justify font-semibold font-im-fell text-2xl">
               <div className="space-x-1 flex justify-start items-start ">
                 <span className="basis-1/2">species: </span>
                 <span className="basis-1/2">{species || "Unknown"}</span>
@@ -121,7 +123,7 @@ export default function CharacterCard({ character }: { character: Character }) {
                 <span className="basis-1/2">{house || "Unknown"}</span>
               </div>
               <div className="space-x-1 flex justify-start items-start">
-                <span className="basis-1/2">Date-Of-Birth: </span>
+                <span className="basis-1/2">DOB: </span>
                 <span className="basis-1/2">{dateOfBirth || "Unknown"}</span>
               </div>
               <div className="space-x-1 flex justify-start items-start">
@@ -158,7 +160,7 @@ export default function CharacterCard({ character }: { character: Character }) {
               </div>
             </div>
 
-            <div className="flex flex-col justify-start items-start gap-4">
+            <div className="flex flex-col justify-start items-start gap-4 font-semibold font-im-fell text-2xl">
               <div className="w-full space-x-1 flex justify-start items-start">
                 <span className="basis-3/12">Alternate Names: </span>
                 <span className="basis-9/12">

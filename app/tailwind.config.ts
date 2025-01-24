@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
   	extend: {
+			fontFamily: {
+        harry: ['Harry P', 'sans-serif'],
+        magic: ['Magic Owl', 'sans-serif'],
+				medieval: ['var(--font-medieval)'],
+				'im-fell': ['var(--font-im-fell)'],
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -58,5 +64,6 @@ export default {
   		}
   	}
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;

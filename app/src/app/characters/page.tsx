@@ -79,7 +79,7 @@ export default function Characters() {
           <Button variant="outline" size="icon" className="p-2 bg-white/30 backdrop-blur-sm border border-white/5" onClick={() => router.back()}>
             <ChevronLeft />
           </Button>
-          <h1 className="text-2xl font-semibold px-2">Character Book</h1>
+          <h1 className="text-5xl font-bold font-harry tracking-wide px-2">Character Book</h1>
           <div></div>
         </div>
 
@@ -109,12 +109,12 @@ export default function Characters() {
                           e.preventDefault();
                           setPage(page - 1);
                         }}
-                        className="bg-white/30 backdrop-blur-sm border border-white/5"
+                        className="bg-white/30 backdrop-blur-sm border border-white/5 font-medieval text-lg font-semibold"
                       />
                     ) : (
                       <PaginationPrevious
                         href="#"
-                        className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5"
+                        className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5 font-medieval text-lg font-semibold"
                         aria-disabled="true"
                       />
                     )}
@@ -147,7 +147,7 @@ export default function Characters() {
                           <PaginationLink
                             href={`?page=${pageNumber}`}
                             isActive={pageNumber === page}
-                            className="bg-white/30 backdrop-blur-sm border border-white/5"
+                            className="bg-white/30 backdrop-blur-sm border border-white/5 font-medieval text-lg font-semibold"
                             onClick={(e) => {
                               e.preventDefault();
                               setPage(pageNumber);
@@ -168,12 +168,12 @@ export default function Characters() {
                             e.preventDefault();
                             setPage(page + 1);
                           }}
-                          className="bg-white/30 backdrop-blur-sm border border-white/5"
+                          className="bg-white/30 backdrop-blur-sm border border-white/5 font-medieval text-lg font-semibold"
                         />
                       ) : (
                         <PaginationNext
                           href="#"
-                          className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5"
+                          className="pointer-events-none bg-white/10 backdrop-blur-sm border border-white/5 font-medieval text-lg font-semibold"
                           aria-disabled="true"
                         />
                       )}

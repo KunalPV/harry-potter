@@ -27,15 +27,15 @@ export default function EndGame({ resetGame, totalQuestions }: EndGameProps) {
 
   return (
     <div className="w-full mt-4 flex justify-center items-center">
-      <Card className="min-w-full flex flex-col justify-center items-center gap-4 p-4 bg-white/30 backdrop-blur-sm border border-white/5">
-        <h1 className="text-3xl font-semibold">Game Over</h1>
-        <p className="text-xl">You attempted {totalQuestions} questions this time.</p>
-        <p className="text-xl text-center">{randomMessage}</p>
-        <div className="flex gap-4 mt-4 flex-col sm:flex-row">
-          <Button size="lg" onClick={resetGame} className="text-lg">
+      <Card className="min-w-full flex flex-col justify-center items-center gap-4 p-4 bg-white/30 backdrop-blur-sm border border-white/5 font-im-fell">
+        <h1 className="text-4xl font-bold">Game Over</h1>
+        <p className="text-2xl font-semibold">You attempted {totalQuestions} questions this time.</p>
+        <p className="text-2xl font-semibold text-center">{randomMessage}</p>
+        <div className="flex gap-4 mt-4 flex-col sm:flex-row font-magic">
+          <Button size="lg" onClick={resetGame} className="text-3xl text-white/90">
             Restart Trivia
           </Button>
-          <Button size="lg" onClick={() => router.push("/")} className="text-lg">
+          <Button size="lg" onClick={() => router.push("/")} className="text-3xl text-white/90">
             Return to Home
           </Button>
         </div>

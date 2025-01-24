@@ -58,21 +58,21 @@ export default function Question({
   };
 
   return (
-    <Card className="bg-white/30 backdrop-blur-sm border border-white/5 pt-1">
+    <Card className="bg-white/30 backdrop-blur-sm border border-white/5 pt-1 font-im-fell tracking-wide">
       <CardContent className="p-4">
         <div className="w-full flex flex-col justify-start items-center px-4 gap-4">
           <div>
-            <p className="text-lg md:text-xl text-justify">{question.question}</p>
+            <p className="text-2xl font-bold md:text-3xl text-justify">{question.question}</p>
           </div>
 
           <Separator className="bg-black" />
 
-          <div className="flex flex-col justify-start items-start w-full gap-2 text-lg text-justify">
+          <div className="flex flex-col justify-start items-start w-full gap-2 text-2xl text-justify font-semibold">
             {question.options.map((option, index) => (
               <p
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                className={`rounded p-2 cursor-pointer w-full ${
+                className={`rounded px-2 py-1 cursor-pointer w-full ${
                   selectedOption === option
                     ? showResult
                       ? option === question.answer
@@ -114,11 +114,11 @@ export default function Question({
             <div>
               <Button
                 size={"lg"}
-                className="text-lg flex items-center gap-2"
+                className="text-2xl flex items-center gap-2 font-magic text-white/90"
                 disabled={!selectedOption || loading}
                 onClick={handleSubmit}
               >
-                {loading ? <LoaderCircle className="animate-spin w-5 h-5" /> : "Submit"}
+                {loading ? <LoaderCircle className="animate-spin w-5 h-5 " /> : "Submit"}
               </Button>
             </div>
           </div>
