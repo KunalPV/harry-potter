@@ -16,14 +16,14 @@ type QuestionProps = {
   };
   lives: number;
   handleIncorrect: () => void;
-  fetchNextQuestion: () => void;
+  handleCorrect: () => void; // Changed from fetchNextQuestion
 };
 
 export default function Question({
   question,
   lives,
   handleIncorrect,
-  fetchNextQuestion,
+  handleCorrect, // Updated prop
 }: QuestionProps) {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
@@ -40,7 +40,7 @@ export default function Question({
         setLoading(false);
         setShowResult(false);
         setSelectedOption(null);
-        fetchNextQuestion();
+        handleCorrect(); // Use handleCorrect instead of fetchNextQuestion
       }, 2000);
     } else {
       setMessage("Oops! Wrong answer. Select the right option to continue.");
@@ -58,14 +58,14 @@ export default function Question({
   };
 
   return (
-    <Card className="bg-white/30 backdrop-blur-sm border border-white/5">
+    <Card className="bg-white/30 backdrop-blur-sm border border-white/5 pt-1">
       <CardContent className="p-4">
         <div className="w-full flex flex-col justify-start items-center px-4 gap-4">
           <div>
             <p className="text-lg md:text-xl text-justify">{question.question}</p>
           </div>
 
-          <Separator />
+          <Separator className="bg-black" />
 
           <div className="flex flex-col justify-start items-start w-full gap-2 text-lg text-justify">
             {question.options.map((option, index) => (
@@ -89,7 +89,7 @@ export default function Question({
             ))}
           </div>
 
-          <Separator />
+          <Separator className="bg-black" />
 
           {message && (
             <div className="w-full text-center text-red-800 italic mt-2">
@@ -103,7 +103,9 @@ export default function Question({
                 <Heart
                   key={index}
                   className={`w-5 h-5 ${
-                    index < lives ? "text-red-500" : "text-gray-300"
+                    index < lives 
+                      ? "text-red-700 fill-red-700" 
+                      : "text-gray-200 fill-gray-200"
                   }`}
                 />
               ))}

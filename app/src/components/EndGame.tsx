@@ -9,10 +9,7 @@ type EndGameProps = {
   totalQuestions: number;
 };
 
-export default function EndGame({
-  resetGame,
-  totalQuestions,
-}: EndGameProps) {
+export default function EndGame({ resetGame, totalQuestions }: EndGameProps) {
   const router = useRouter();
   const messages = [
     "Fantastic work, wizard! Dumbledore would be proud of you!",
@@ -30,11 +27,9 @@ export default function EndGame({
 
   return (
     <div className="w-full mt-4 flex justify-center items-center">
-      <Card className="max-w-fit flex flex-col justify-center items-center gap-4 p-4 bg-white/30 backdrop-blur-sm border border-white/5">
+      <Card className="min-w-full flex flex-col justify-center items-center gap-4 p-4 bg-white/30 backdrop-blur-sm border border-white/5">
         <h1 className="text-3xl font-semibold">Game Over</h1>
-        <p className="text-lg">
-        You attempted {totalQuestions} questions this time.
-        </p>
+        <p className="text-xl">You attempted {totalQuestions} questions this time.</p>
         <p className="text-xl text-center">{randomMessage}</p>
         <div className="flex gap-4 mt-4 flex-col sm:flex-row">
           <Button size="lg" onClick={resetGame} className="text-lg">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 
@@ -16,10 +17,19 @@ export default function SpellCard({ spell }: { spell: Spell }) {
             <div>
               <p className="text-2xl font-semibold text-justify">{spell.name}</p>
             </div>
-            <div className="w-8 h-8 bg-gray-500 rounded-full" />
+
+            <div className="overflow-hidden">
+              <Image 
+                src="/spell_logo.png"
+                alt="Spell logo"
+                width={36}  // w-8 = 32px (8 * 4)
+                height={36}
+                className="w-full h-full object-contain p-1"
+              />
+            </div>
           </div>
 
-          <Separator />
+          <Separator className="bg-black" />
 
           <div className="">
             <h2 className="text-xl text-center">{spell.description}</h2>

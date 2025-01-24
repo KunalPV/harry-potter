@@ -83,7 +83,7 @@ export default function Characters() {
           <div></div>
         </div>
 
-        <Separator />
+        <Separator className="bg-black" />
 
           {loading ? (
             <div className="text-center">Loading...</div>

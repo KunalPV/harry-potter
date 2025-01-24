@@ -23,35 +23,32 @@ export default function Trivia() {
   const [gameOver, setGameOver] = useState(false);
   const [totalQuestions, setTotalQuestions] = useState(0);
 
-  // Fetch the next question
   const fetchQuestion = async () => {
     try {
       const response = await fetch("http://localhost:8080/api/game/question");
-      if (!response.ok) {
-        throw new Error("Failed to fetch question.");
-      }
+      if (!response.ok) throw new Error("Failed to fetch question.");
       const data: QuestionData = await response.json();
       setQuestion(data);
-      setTotalQuestions((prev) => prev + 1);
     } catch (error) {
       console.error(error);
     }
   };
 
-  // Handle ending the game
-  const handleEndGame = () => {
-    setGameOver(true);
-  };
+  const handleEndGame = () => setGameOver(true);
 
-  // Handle life deduction
   const handleIncorrect = () => {
-    setLives((prev) => prev - 1);
-    if (lives - 1 === 0) {
-      setGameOver(true);
-    }
+    setLives((prev) => {
+      const newLives = prev - 1;
+      if (newLives === 0) setGameOver(true);
+      return newLives;
+    });
   };
 
-  // Reset game state
+  const handleCorrect = () => {
+    setTotalQuestions(prev => prev + 1);
+    fetchQuestion();
+  };
+
   const resetGame = () => {
     setLives(3);
     setTotalQuestions(0);
@@ -64,19 +61,19 @@ export default function Trivia() {
   }, []);
 
   if (gameOver) {
-    return (
-      <EndGame
-        resetGame={resetGame}
-        totalQuestions={totalQuestions}
-      />
-    );
+    return <EndGame resetGame={resetGame} totalQuestions={totalQuestions} />;
   }
 
   return (
     <div className="w-full p-2 mt-2 mb-6">
       <div className="w-full flex flex-col justify-center items-start gap-4">
         <div className="flex justify-between items-center w-full">
-          <Button variant="outline" size="icon" onClick={() => router.back()} className="bg-white/30 backdrop-blur-sm border border-white/5">
+          <Button 
+            variant="outline" 
+            size="icon" 
+            onClick={() => router.back()} 
+            className="bg-white/30 backdrop-blur-sm border border-white/5"
+          >
             <ChevronLeft />
           </Button>
           <h1 className="text-2xl font-semibold">Trivia Game</h1>
@@ -91,7 +88,7 @@ export default function Trivia() {
               question={question}
               lives={lives}
               handleIncorrect={handleIncorrect}
-              fetchNextQuestion={fetchQuestion}
+              handleCorrect={handleCorrect}
             />
           )}
         </div>

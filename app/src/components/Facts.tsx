@@ -36,7 +36,7 @@ export function Facts() {
           <CardTitle className="text-2xl">Fact of the Day.</CardTitle>
         </CardHeader>
 
-        <Separator className="mx-4 w-[95%]" />
+        <Separator className="mx-4 w-[95%] bg-black" />
 
         <CardContent className="p-2 md:p-4 text-balance text-center">
           <p className="text-xl">{fact}</p>

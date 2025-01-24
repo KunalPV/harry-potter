@@ -9,7 +9,7 @@ export function NavBar() {
       </div>
 
       <div className="w-full flex justify-center items-center">
-        <Separator className="w-[90%]" />
+        <Separator className="w-[90%] bg-black" />
       </div>
     </div>
   )

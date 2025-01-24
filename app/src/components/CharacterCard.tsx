@@ -7,6 +7,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Separator } from "./ui/separator";
+import { getHouseBackground, getHouseLogo } from "@/utils/houseUtils";
+import Image from "next/image";
 
 type Character = {
   id: string;
@@ -64,10 +66,16 @@ export default function CharacterCard({ character }: { character: Character }) {
     <div className="w-full">
       <Dialog>
         <DialogTrigger className="w-full flex justify-center items-center">
-          <Card className="w-80 sm:w-full cursor-pointer hover:shadow-lg bg-white/70 backdrop-blur-sm border border-white/5" >
+          <Card className="w-80 sm:w-full cursor-pointer hover:shadow-lg bg-white/40 backdrop-blur-sm border border-white/5" >
             <CardContent className="flex justify-around items-center gap-4 p-4">
-              <div className="w-12 h-12 bg-gray-500 rounded-full">
-
+              <div className="overflow-hidden">
+                <Image 
+                  src={getHouseLogo(house)}
+                  alt={`${house || 'Hogwarts'} logo`}
+                  width={60}
+                  height={60}
+                  className="object-cover p-1.5"
+                />
               </div>
               <div className="w-9/12">
                 <h2 className="text-xl font-bold truncate">{name}</h2>
@@ -75,7 +83,18 @@ export default function CharacterCard({ character }: { character: Character }) {
             </CardContent>
           </Card>
         </DialogTrigger>
-        <DialogContent className="max-w-md max-h-screen md:max-w-2xl lg:max-w-3xl rounded-md overflow-auto">
+        <DialogContent 
+          className="max-w-md max-h-screen md:max-w-2xl lg:max-w-3xl rounded-md overflow-auto border-black"
+          style={{
+            backgroundImage: `radial-gradient(
+              circle at center,
+              rgba(255,255,255,0.7) 0%,
+              rgba(0,0,0,0.8) 100%
+            ), url(${getHouseBackground(house)})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <DialogHeader>
             <DialogTitle>
               <div className="w-full flex justify-center items-center pb-2">
@@ -83,11 +102,11 @@ export default function CharacterCard({ character }: { character: Character }) {
               </div>
             </DialogTitle>
 
-            <Separator />
+            <Separator className="bg-black" />
 
           </DialogHeader>
 
-          <div className="w-full flex flex-col gap-4 text-lg">
+          <div className="w-full flex flex-col gap-4 text-lg p-2 rounded-md bg-white/40 border-white/5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-justify">
               <div className="space-x-1 flex justify-start items-start ">
                 <span className="basis-1/2">species: </span>

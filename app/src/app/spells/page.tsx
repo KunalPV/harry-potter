@@ -65,7 +65,7 @@ export default function Spells() {
           <div></div>
         </div>
 
-        <Separator />
+        <Separator className="bg-black" />
 
         {loading ? (
           <div className="text-center">Loading...</div>
