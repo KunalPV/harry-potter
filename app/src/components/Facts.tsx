@@ -14,7 +14,7 @@ export function Facts() {
   useEffect(() => {
     const fetchFact = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/facts");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/facts`);
         if (!response.ok) {
           throw new Error("Failed to fetch the fact");
         }

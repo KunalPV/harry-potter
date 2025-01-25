@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, MedievalSharp, IM_Fell_English } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
-// import { Footer } from "@/components/Footer";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,16 +43,16 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Potterhead Puzzles" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${medieval.variable} ${imFellEnglish.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${medieval.variable} ${imFellEnglish.variable} antialiased flex flex-col min-h-screen`}
       >
         <header>
           <NavBar />
         </header>
-        <MaxWidthWrapper>
+        <MaxWidthWrapper className="flex-grow">
           {children}
         </MaxWidthWrapper>
         <footer>
-          {/* <Footer /> */}
+          <Footer />
         </footer>
       </body>
     </html>

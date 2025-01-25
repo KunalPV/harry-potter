@@ -51,7 +51,7 @@ export default function Characters() {
     const fetchCharacters = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:8080/api/characters?page=${page}&limit=12`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/characters?page=${page}&limit=12`);
         if (!response.ok) {
           throw new Error(`Error fetching characters: ${response.statusText}`);
         }

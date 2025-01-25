@@ -33,7 +33,7 @@ export default function Spells() {
     const fetchSpells = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:8080/api/spells?page=${page}&limit=10`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/spells?page=${page}&limit=10`);
         if (!response.ok) {
           throw new Error(`Error fetching spells: ${response.statusText}`);
         }

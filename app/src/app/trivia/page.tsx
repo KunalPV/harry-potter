@@ -25,7 +25,7 @@ export default function Trivia() {
 
   const fetchQuestion = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/game/question");
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/game/question`);
       if (!response.ok) throw new Error("Failed to fetch question.");
       const data: QuestionData = await response.json();
       setQuestion(data);
