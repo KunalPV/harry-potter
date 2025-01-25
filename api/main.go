@@ -6,8 +6,8 @@ import (
 	"harry-potter-api/handlers"
 	"harry-potter-api/models"
 	"harry-potter-api/utils"
-	"log"
 	"net/http"
+	"os"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -39,7 +39,7 @@ func main() {
 	r := chi.NewRouter()
 
 	r.Use(cors.Handler(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{"*"},
 		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
 		ExposedHeaders:   []string{"Link"},
@@ -67,7 +67,11 @@ func main() {
 		handlers.GetSpellsHandler(w, r, spells)
 	})
 
-	port := ":8080"
-	fmt.Printf("Server is running on http://localhost%s\n", port)
-	log.Fatal(http.ListenAndServe(port, r))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	fmt.Printf("Server is running on %s\n", port)
+	http.ListenAndServe(":"+port, r)
 }

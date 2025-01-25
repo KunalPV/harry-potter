@@ -1,7 +1,7 @@
 {
   "current_fact": {
-    "fact": "Albus Severus Potter is also known as Al.",
-    "source": "characters"
+    "fact": "The spell Aberto opens locked doors.",
+    "source": "spells"
   },
   "shown_facts": [
     {
@@ -11,7 +11,11 @@
     {
       "fact": "Albus Severus Potter is also known as Al.",
       "source": "characters"
+    },
+    {
+      "fact": "The spell Aberto opens locked doors.",
+      "source": "spells"
     }
   ],
-  "last_updated_day": "2025-01-24T00:00:00Z"
+  "last_updated_day": "2025-01-25T00:00:00Z"
 }
